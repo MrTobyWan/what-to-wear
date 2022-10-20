@@ -1,11 +1,11 @@
-<script lang="ts">
-  import { blue, red, green } from "./stores";
+<script lang='ts'>
+  import { blue, red, green } from './stores';
 </script>
 
-<div class="clothesSelection">
-	<button id="blue" on:click={() => $blue = !$blue}></button>
-	<button id="red" on:click={() => $red = !$red}></button>
-	<button id="green" on:click={() => $green = !$green}></button>
+<div class='clothesSelection'>
+	<button id='blue' on:click={() => $blue = !$blue}></button>
+	<button id='red' on:click={() => $red = !$red}></button>
+	<button id='green' on:click={() => $green = !$green}></button>
 </div>
 
 <div>
