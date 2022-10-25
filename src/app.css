@@ -63,14 +63,20 @@ button:focus {
 } */
 
 html {
-	background-color: #333249
+  background-color: #333249;
+  color: azure;
+}
+
+:root {
+  display: flex;
+  justify-content: center;
 }
 
 button {
-    height: 134px;
-		width: 104px;
-    padding: 1em;
-    margin: 1em;
+  height: 134px;
+  width: 104px;
+  padding: 1em;
+  margin: 1em;
 }
 
 .clothesSelection {
@@ -79,8 +85,8 @@ button {
 }
 
 #regnbukser {
-	background-image: url('./images/regnbukser.png');
-	background-size: 100px 130px;
-	height: 134px;  
-	width: 104px;
+  background-image: url('./images/regnbukser.png');
+  background-size: 100px 130px;
+  height: 134px;
+  width: 104px;
 }
