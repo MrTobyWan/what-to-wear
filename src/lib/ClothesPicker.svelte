@@ -1,33 +1,18 @@
 <script lang='ts'>
-  import { blue, red, green } from './stores';
+  import { blue, red, green, clothing } from './stores';
 
-	// let clothesSelected: string[] = [];
-
-	// let clothesPool: string[] = [
-	// 	'Red',
-	// 	'Green',
-	// 	'Blue'
-	// ];
-
-	let clothesSelected: {name: string, store: any}[] = [];
-
-	let clothesPool: {name: string, store: any}[] = [
-		{'name': 'Red', 'store': $red},
-		{'name': 'Green', 'store': $green},
-		{'name': 'Blue', 'store': $blue},
-	];
+	let clothesSelected: {name: string, store: boolean}[] = [];
 
 	function saveSelection() {
-		alert('selected clothes: ' + clothesSelected);
-		// for (let i = 0; i < clothesSelected.length; i++) {
-		// 	clothesSelected[i].store = !clothesSelected[i].store;
-		// }
+		for (let i = 0; i < clothesSelected.length; i++) {
+			$clothing[i].selected = !$clothing[i].selected;
+		}
 	}
 
 </script>
 
 <div class='clothesSelection'>
-	{#each clothesPool as clothing}
+	{#each $clothing as clothing}
 		<label>
 			<input type=checkbox bind:group={clothesSelected} value={clothing.name}>
 			{clothing.name}
@@ -40,29 +25,19 @@
 </div>
 
 <div>
-  {#if $blue}
-    <p>blue is selected</p>
+  {#if $clothing[0].selected}
+    <p>$clothing[0].name is selected</p>
   {/if}
 
-  {#if $red}
-    <p>red is selected</p>
+  {#if $clothing[1].selected}
+    <p>$clothing[1].name is selected</p>
   {/if}
 
-  {#if $green}
-    <p>green is selected</p>
+  {#if $clothing[2].selected}
+    <p>$clothing[2].name is selected</p>
   {/if}
 </div>
 
 <style>
-	/* #blue {
-		background-color: blue;
-	}
 
-	#red {
-		background-color: red;
-	}
-
-	#green {
-		background-color: green;
-	} */
 </style>
