@@ -26,15 +26,15 @@
 
 <div>
   {#if $clothing[0].selected}
-    <p>$clothing[0].name is selected</p>
+    <p>{$clothing[0].name} is selected</p>
   {/if}
 
   {#if $clothing[1].selected}
-    <p>$clothing[1].name is selected</p>
+    <p>{$clothing[1].name} is selected</p>
   {/if}
 
   {#if $clothing[2].selected}
-    <p>$clothing[2].name is selected</p>
+    <p>{$clothing[2].name} is selected</p>
   {/if}
 </div>
 
