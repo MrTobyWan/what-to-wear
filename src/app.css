@@ -1,28 +1,6 @@
-html {
-	background-color: #333249;
-	color: azure;
-}
-
-:root {
-	display: flex;
-	justify-content: center;
-}
-
 button {
 	height: 134px;
 	width: 104px;
 	padding: 1em;
 	margin: 1em;
-}
-
-.clothesSelection {
-	display: flex;
-	justify-content: center;
-}
-
-#regnbukser {
-	background-image: url('./images/regnbukser.png');
-	background-size: 100px 130px;
-	height: 134px;
-	width: 104px;
 }
