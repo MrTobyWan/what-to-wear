@@ -6,4 +6,5 @@ export type ColorData = {
 	blue: boolean;
 };
 
-export const collection = db.collection<ColorData>('colors');
+const collectionName = 'colors';
+export const collection = db.collection<ColorData>(collectionName);
