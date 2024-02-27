@@ -16,7 +16,7 @@ const today = () => {
 // Function to fetch colors for the current date
 const fetchColors = async () => {
 	// Check if a document for the current date exists
-	const existingData = await collection.findOne({ date: today });
+	const existingData = await collection.findOne({ date: today() });
 
 	// If a document exists, return it; otherwise, insert a new document with default values
 	if (existingData) {
@@ -26,7 +26,7 @@ const fetchColors = async () => {
 			red: false,
 			green: false,
 			blue: false,
-			date: today
+			date: today(),
 		};
 		await collection.insertOne(defaultData);
 		return defaultData;
@@ -43,7 +43,7 @@ export const load = (async () => {
 	return {
 		red: colors.red,
 		green: colors.green,
-		blue: colors.blue
+		blue: colors.blue,
 	};
 }) satisfies PageServerLoad;
 
@@ -51,7 +51,7 @@ export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
 
-		const existingData = await collection.findOne({ date: today });
+		const existingData = await collection.findOne({ date: today() });
 
 		if (!existingData) {
 			// Insert a new document with default values if it doesn't exist
@@ -59,22 +59,22 @@ export const actions = {
 				red: false,
 				green: false,
 				blue: false,
-				date: today
+				date: today(),
 			};
 			await collection.insertOne(defaultData);
 		}
 
 		await collection.updateOne(
-			{ date: today },
+			{ date: today() },
 			{
 				$set: {
 					red: data.has('red'),
 					green: data.has('green'),
-					blue: data.has('blue')
-				}
+					blue: data.has('blue'),
+				},
 			}
 		);
 
 		return { success: true };
-	}
+	},
 } satisfies Actions;
